@@ -1,0 +1,18 @@
+#social-networks {
+  margin-right: 4px;
+}
+
+a {
+  color: #fff;
+  margin-right: 6px;
+  margin-top: 3px;
+  transition: all .1s;
+}
+
+a:hover {
+  color: #eee;
+}
+
+i {
+  font-size: 25px;
+}

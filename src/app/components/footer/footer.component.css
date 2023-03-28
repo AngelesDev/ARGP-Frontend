@@ -1,0 +1,17 @@
+footer {
+  display: flex;
+  padding: 15px 25px;
+  background: #a059db;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  color: #fff;
+  margin-right: 6px;
+}
+
+i {
+  font-size: 42px;
+}

@@ -1,0 +1,9 @@
+nav {
+  background: #a059db;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  padding: 0;
+}

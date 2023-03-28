@@ -1,0 +1,48 @@
+#banner {
+  position: relative;
+  background: #000;
+}
+
+img {
+  width: 100%;
+  height: 95vh;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.center {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+.down-arrow {
+  margin-top: 20px;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: jumpInfinite 1.5s infinite;
+}
+
+i {
+  font-size: 25px;
+  color: #fff;
+}
+
+@keyframes jumpInfinite {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 20px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}

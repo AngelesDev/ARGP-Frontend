@@ -1,0 +1,28 @@
+<div class="row">
+  <h2 ngsReveal>Mis Proyectos</h2>
+
+  <div class="card" *ngFor="let project of projects">
+    <img src="{{ project.img }}" class="card-img-top" alt="{{ project.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ project.title }}</h5>
+
+      <p class="card-text">
+        {{ project.body }}
+        <br>
+        <b>Hecho con {{ project.skillsUsed }}</b>
+      </p>
+    
+      <div id="relative">
+        <div id="options">
+          <a href="{{ project.webPageLink }}" class="btn btn-primary" rel="noopener noreferrer" title="Ver demo">
+            <i class="bi bi-box-arrow-in-up-right"></i>
+          </a>
+    
+          <a href="{{ project.gitHubLink }}" class="btn btn-primary" rel="noopener noreferrer" title="Ver repositorio">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

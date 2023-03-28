@@ -1,0 +1,9 @@
+<h2 ngsReveal>Habilidades</h2>
+<div id="skills" *ngFor="let skill of skills">
+  <div id="skill-container" ngsReveal>
+    {{ skill.name }}
+    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" style="{{'width:' + skill.level + '%'}}">{{ skill.level }}%</div>
+    </div>
+  </div>
+</div>
