@@ -1,0 +1,9 @@
+<input type="file" class="form-control" (change)="selectFile($event)" />
+<button
+  class="btn btn-secondary"
+  id="upload-image-btn"
+  [disabled]="!selectedFiles"
+  (click)="upload()"
+>
+  Guardar
+</button>

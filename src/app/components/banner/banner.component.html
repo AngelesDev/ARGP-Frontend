@@ -1,9 +1,25 @@
 <div id="banner">
-  <img src="../../../assets/banner.jpeg" alt="Banner">
-  <div class="center">
+  <img src="../../../assets/banner.jpeg" alt="Banner" />
+  <div class="center" *ngIf="!editMode">
     {{ persona.nombre }}
   </div>
-  
+
+  <div class="center" *ngIf="editMode">
+    <div id="actions">
+      <button (click)="editElement()" title="Editar">
+        <i class="bi bi-pencil"></i>
+      </button>
+      <button (click)="deleteElement()" title="Borrar">
+        <i class="bi bi-trash3"></i>
+      </button>
+      <button (click)="saveElement()" title="Guardar">
+        <i class="bi bi-save"></i>
+      </button>
+    </div>
+    <span *ngIf="!convertToTextarea">{{ persona.nombre }}</span>
+    <textarea *ngIf="convertToTextarea" #name>{{ persona.nombre }}</textarea>
+  </div>
+
   <div class="down-arrow">
     <i class="bi bi-arrow-down"></i>
   </div>

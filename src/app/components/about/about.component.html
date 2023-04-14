@@ -1,12 +1,76 @@
 <h2 ngsReveal>Sobre mí</h2>
 <div id="about">
-  <img src="../../../assets/profile.jpeg" alt="Foto" ngsReveal>
-  <div ngsReveal>
-    {{ about.body }}
-    <!--<div class="name">
-      <b>
-        {{ persona.nombre }}
-      </b>
-    </div>-->
+  <div ngsReveal id="about-info" class="d-flex" *ngIf="!editMode">
+    <div>
+      <img src="{{ image }}" alt="Foto" ngsReveal />
+    </div>
+    <div>
+      <span>{{ about.body }}</span>
+    </div>
+  </div>
+
+  <div ngsReveal class="d-flex" *ngIf="editMode">
+    <div>
+      <div id="edit-image-btn-container">
+        <button
+          [attr.data-bs-toggle]="'modal'"
+          [attr.data-bs-target]="'#imageBackdropEdit'"
+          class="btn btn-primary"
+          id="edit-image-btn"
+          title="Editar imagen"
+          ngsReveal
+        >
+          Editar imagen
+        </button>
+        <img src="{{ image }}" id="img-edit" alt="Foto" ngsReveal />
+      </div>
+    </div>
+    <div id="about-info">
+      <div id="actions">
+        <button (click)="editElement()" title="Editar">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button (click)="deleteElement()" title="Borrar">
+          <i class="bi bi-trash3"></i>
+        </button>
+        <button (click)="saveElement()" title="Guardar">
+          <i class="bi bi-save"></i>
+        </button>
+      </div>
+      <span *ngIf="!convertToTextarea" id="content">{{ about.body }}</span>
+      <textarea *ngIf="convertToTextarea" #description>{{
+        about.body
+      }}</textarea>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="imageBackdropEdit"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Imagen</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form class="modal-body">
+        <label>
+          <span>Selecciona una imagen</span>
+          <app-upload-image></app-upload-image>
+        </label>
+      </form>
+    </div>
   </div>
 </div>

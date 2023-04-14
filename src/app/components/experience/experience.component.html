@@ -1,10 +1,186 @@
+<h2>Experiencia Laboral</h2>
 <div class="row" ngsReveal>
-  <h2>Experiencia Laboral</h2>
   <div class="col-lg-11">
     <ul *ngFor="let experience of experiences">
-      <li ngsReveal>
+      <li ngsReveal *ngIf="!editMode">
         <h5>{{ experience.title }}</h5>
+        <p>{{ experience.body }}</p>
       </li>
     </ul>
   </div>
 </div>
+
+<div *ngFor="let experience of experiences">
+  <!-- Modal Editor -->
+  <div
+    class="modal fade"
+    id="experienceBackdrop{{ experience.id }}"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Editar Experiencia
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form class="modal-body">
+          <label>
+            <span>Nombre de experiencia</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ejemplo: Frontend Developer - Coderhouse"
+              value="{{ experience.title }}"
+              id="experienceName{{ experience.id }}"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Descripción</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              value="{{ experience.body }}"
+              id="experienceDescription{{ experience.id }}"
+              required
+            />
+          </label>
+        </form>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="{{ experience.id }}"
+            (click)="saveElement($event)"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Create Element Editor -->
+  <div
+    class="modal fade"
+    id="experienceBackdropCreate"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Agregar Experiencia
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form class="modal-body">
+          <label>
+            <span>Nombre de experiencia</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ejemplo: Frontend Developer - Coderhouse"
+              id="createExperienceName{{ experience.id }}"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Descripción</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Aqui puedes escribir los impactos que generaste al participar en la empresa"
+              id="createExperienceDescription{{ experience.id }}"
+              required
+            />
+          </label>
+        </form>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="{{ experience.id }}"
+            (click)="createElement($event)"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul id="experienceContainer{{ experience.id }}">
+    <li ngsReveal *ngIf="editMode">
+      <div id="actions">
+        <button
+          [attr.data-bs-toggle]="'modal'"
+          [attr.data-bs-target]="'#experienceBackdrop' + experience.id"
+          title="Editar"
+        >
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button
+          (click)="deleteElement($event)"
+          id="{{ experience.id }}"
+          title="Borrar"
+        >
+          <i class="bi bi-trash3"></i>
+        </button>
+      </div>
+      <h5 id="experienceTitle{{ experience.id }}">
+        {{ experience.title }}
+      </h5>
+      <p id="experienceBodyDescription{{ experience.id }}">
+        {{ experience.body }}
+      </p>
+    </li>
+  </ul>
+</div>
+<button
+  [attr.data-bs-toggle]="'modal'"
+  [attr.data-bs-target]="'#experienceBackdropCreate'"
+  class="btn btn-primary"
+  *ngIf="editMode"
+  id="createElement"
+  title="Agregar elemento"
+  ngsReveal
+>
+  Añadir elemento
+</button>

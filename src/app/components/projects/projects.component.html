@@ -1,28 +1,309 @@
 <div class="row">
   <h2 ngsReveal>Mis Proyectos</h2>
+  <div class="projects-container" *ngFor="let project of projects">
+    <div class="card" *ngIf="!editMode">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
 
-  <div class="card" *ngFor="let project of projects">
-    <img src="{{ project.img }}" class="card-img-top" alt="{{ project.title }}">
-    <div class="card-body">
-      <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">
+          {{ project.body }}
+          <br />
+          <b>Hecho con {{ project.skillsUsed }}</b>
+        </p>
 
-      <p class="card-text">
-        {{ project.body }}
-        <br>
-        <b>Hecho con {{ project.skillsUsed }}</b>
-      </p>
-    
-      <div id="relative">
-        <div id="options">
-          <a href="{{ project.webPageLink }}" class="btn btn-primary" rel="noopener noreferrer" title="Ver demo">
-            <i class="bi bi-box-arrow-in-up-right"></i>
-          </a>
-    
-          <a href="{{ project.gitHubLink }}" class="btn btn-primary" rel="noopener noreferrer" title="Ver repositorio">
-            <i class="bi bi-github"></i>
-          </a>
+        <div id="relative">
+          <div id="options">
+            <a
+              href="{{ project.webPageLink }}"
+              class="btn btn-primary"
+              rel="noopener noreferrer"
+              title="Ver demo"
+            >
+              <i class="bi bi-box-arrow-in-up-right"></i>
+            </a>
+
+            <a
+              href="{{ project.gitHubLink }}"
+              class="btn btn-primary"
+              rel="noopener noreferrer"
+              title="Ver repositorio"
+            >
+              <i class="bi bi-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects-container" *ngFor="let project of projects">
+    <!-- Modal Editor -->
+    <div
+      class="modal fade"
+      id="projectBackdrop{{ project.id }}"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Editar proyecto
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form class="modal-body">
+            <label>
+              <span>Título</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Escribe el título del proyecto aqui"
+                id="projectTitle{{ project.id }}"
+                value="{{ project.title }}"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Descripción</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Escribe la descripción del proyecto aqui"
+                id="projectDescription{{ project.id }}"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Tecnologías usadas</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ejemplo: Angular y Spring Boot"
+                id="projectSkillsUsed{{ project.id }}"
+                value="{{ project.skillsUsed }}"
+                required
+              />
+            </label>
+
+            <label>
+              <span>GitHub del proyecto</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ejemplo: https://github.com/miusuario/miproyecto"
+                id="projectGithubLink{{ project.id }}"
+                value="{{ project.gitHubLink }}"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Página del proyecto</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ejemplo: miproyectoweb.com"
+                id="projectWebpageLink{{ project.id }}"
+                value="{{ project.webPageLink }}"
+                required
+              />
+            </label>
+          </form>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="{{ project.id }}"
+              (click)="saveElement($event)"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Creator Editor -->
+    <div
+      class="modal fade"
+      id="projectBackdropCreate"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Añadir proyecto
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form class="modal-body">
+            <label>
+              <span>Título</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Escribe el título del proyecto aqui"
+                id="createProjectTitle{{ project.id }}"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Descripción</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Escribe la descripción del proyecto aqui"
+                id="createProjectDescription{{ project.id }}"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Tecnologías usadas</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ejemplo: Angular y Spring Boot"
+                id="createProjectSkillsUsed{{ project.id }}"
+                required
+              />
+            </label>
+
+            <label>
+              <span>GitHub del proyecto</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ejemplo: https://github.com/miusuario/miproyecto"
+                id="createProjectGithubLink{{ project.id }}"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Página del proyecto</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ejemplo: miproyectoweb.com"
+                id="createProjectWebpageLink{{ project.id }}"
+                required
+              />
+            </label>
+          </form>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="{{ project.id }}"
+              (click)="createElement($event)"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" *ngIf="editMode" id="project{{ project.id }}">
+      <div id="actions-container">
+        <div id="actions">
+          <button
+            [attr.data-bs-toggle]="'modal'"
+            [attr.data-bs-target]="'#projectBackdrop' + project.id"
+            title="Editar"
+          >
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button
+            (click)="deleteElement($event)"
+            id="{{ project.id }}"
+            title="Borrar"
+          >
+            <i class="bi bi-trash3"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+
+        <p class="card-text">
+          {{ project.body }}
+          <br />
+          <b>Hecho con {{ project.skillsUsed }}</b>
+        </p>
+
+        <div id="relative">
+          <div id="options">
+            <a
+              href="{{ project.webPageLink }}"
+              class="btn btn-primary"
+              rel="noopener noreferrer"
+              title="Ver demo"
+            >
+              <i class="bi bi-box-arrow-in-up-right"></i>
+            </a>
+
+            <a
+              href="{{ project.gitHubLink }}"
+              class="btn btn-primary"
+              rel="noopener noreferrer"
+              title="Ver repositorio"
+            >
+              <i class="bi bi-github"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<button
+  [attr.data-bs-toggle]="'modal'"
+  [attr.data-bs-target]="'#projectBackdropCreate'"
+  class="btn btn-primary"
+  *ngIf="editMode"
+  id="createElement"
+  title="Añadir proyecto"
+  ngsReveal
+>
+  Añadir proyecto
+</button>

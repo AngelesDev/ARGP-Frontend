@@ -2,12 +2,57 @@
   display: flex;
 }
 
-img {
-  width: 30%;
+#about-info {
+  width: 100%;
+  padding: 0 15px;
 }
 
-div {
+#about-info span {
+  padding: 10px;
+}
+
+img {
+  width: 100%;
+  max-width: 300px;
+  object-fit: cover;
+  margin-top: 8px;
+}
+
+#img-edit {
+  max-width: 400px;
+}
+
+#actions, #about {
   padding: 10px 25px;
+}
+
+#edit-image-btn {
+  display: flex;
+}
+
+#imageBackdropEdit .modal-body label {
+  display: flex;
+  flex-direction: column;
+}
+
+#actions {
+  margin-left: -29px;
+}
+
+#actions button, #edit-image-btn {
+  background: rgba(91, 31, 142, 0.75);
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  margin: 0 5px;
+  transition: all .1s;
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+}
+
+#actions button:hover, #edit-image-btn:hover {
+  background: rgba(91, 31, 142, 0.6);
+  backdrop-filter: blur(8px);
 }
 
 @media (max-width: 800px) {
@@ -17,7 +62,17 @@ div {
   }
 
   #about img {
-    width: 40%;
+    width: 100%;
     min-width: 200px;
+  }
+}
+
+@media (max-width: 755px) {
+  #about .d-flex {
+    flex-direction: column;
+  }
+
+  #about-info {
+    padding: 0;
   }
 }

@@ -24,7 +24,7 @@ img {
 .down-arrow {
   margin-top: 20px;
   position: absolute;
-  top: 48%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: jumpInfinite 1.5s infinite;
@@ -33,6 +33,21 @@ img {
 i {
   font-size: 25px;
   color: #fff;
+}
+
+#actions button {
+  background: rgba(91, 31, 142, 0.75);
+  border: none;
+  padding: 4px 10px;
+  margin: 0 5px;
+  transition: all .1s;
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+}
+
+#actions button:hover {
+  background: rgba(91, 31, 142, 0.6);
+  backdrop-filter: blur(8px);
 }
 
 @keyframes jumpInfinite {

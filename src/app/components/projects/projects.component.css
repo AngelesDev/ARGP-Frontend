@@ -13,6 +13,62 @@ h2 {
   justify-content: space-between;
 }
 
+.projects-container {
+  width: min-content;
+  padding: 0;
+}
+
+#createElement {
+  margin-top: 6px;
+}
+
+#actions-container {
+  position: relative;
+  padding: 0 0 25px;
+}
+
+#actions {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#actions button {
+  background: rgba(91, 31, 142, 0.75);
+  color: #fff;
+  border: none;
+  padding: 6px 8px;
+  transition: all .1s;
+  backdrop-filter: blur(4px);
+}
+
+#actions button:hover {
+  background: rgba(91, 31, 142, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+#actions button:first-child {
+  border-radius: 4px 0 0 0;
+}
+
+#actions button:last-child {
+  border-radius: 0 4px 0 0;
+}
+
+label, input {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  padding-bottom: 10px;
+}
+
+span {
+  padding-bottom: 4px;
+}
+
 .btn-primary {
   --bs-btn-color: #fff;
   --bs-btn-bg: #a059db;

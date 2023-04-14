@@ -5,3 +5,54 @@
 #skill-container {
   padding: 6px 0;
 }
+
+.skill-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+}
+
+#actions {
+  text-align: right;
+}
+
+#actions button {
+  background: rgba(91, 31, 142, 0.75);
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  margin: 0 5px;
+  transition: all .1s;
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+}
+
+#actions button:hover {
+  background: rgba(91, 31, 142, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #824caf;
+  --bs-btn-border-color: #824caf;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #74419e;
+  --bs-btn-hover-border-color: #74419e;
+  --bs-btn-focus-shadow-rgb: 49,132,253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #824caf;
+  --bs-btn-active-border-color: #824caf;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #824caf;
+  --bs-btn-disabled-border-color: #824caf;
+  transition: all .2s;
+}

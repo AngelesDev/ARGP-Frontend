@@ -1,9 +1,202 @@
 <h2 ngsReveal>Habilidades</h2>
 <div id="skills" *ngFor="let skill of skills">
-  <div id="skill-container" ngsReveal>
+  <div id="skill-container" ngsReveal *ngIf="!editMode">
     {{ skill.name }}
-    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-      <div class="progress-bar" style="{{'width:' + skill.level + '%'}}">{{ skill.level }}%</div>
+    <div
+      class="progress"
+      role="progressbar"
+      aria-label="Basic example"
+      aria-valuenow="75"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      <div class="progress-bar" style="{{ 'width:' + skill.level + '%' }}">
+        {{ skill.level }}%
+      </div>
     </div>
   </div>
 </div>
+
+<div id="skills" *ngFor="let skill of skills">
+  <!-- Modal Editor -->
+  <div
+    class="modal fade"
+    id="skillBackdrop{{ skill.id }}"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Editar habilidad
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form class="modal-body">
+          <label>
+            <span>Nombre de tu habilidad</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ejemplo: JavaScript"
+              value="{{ skill.name }}"
+              id="skillName{{ skill.id }}"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Nivel de tu habilidad</span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Por ejemplo: 85 (No es necesario el signo de '%')"
+              value="{{ skill.level }}"
+              id="skillLevel{{ skill.id }}"
+              required
+            />
+          </label>
+        </form>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="{{ skill.id }}"
+            (click)="saveElement($event)"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Create Element Editor -->
+  <div
+    class="modal fade"
+    id="skillBackdropCreate"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Añadir habilidad
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form class="modal-body">
+          <label>
+            <span>Nombre de tu habilidad</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ejemplo: JavaScript"
+              id="createSkillName{{ skill.id }}"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Nivel de tu habilidad</span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Por ejemplo: 85 (No es necesario el signo de '%')"
+              id="createSkillLevel{{ skill.id }}"
+              required
+            />
+          </label>
+        </form>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="{{ skill.id }}"
+            (click)="createElement($event)"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="skill-container" class="skillContainer{{ skill.id }}" ngsReveal *ngIf="editMode">
+    <div class="skill-info-container">
+      <span>{{ skill.name }}</span>
+      <div id="actions">
+        <button
+          [attr.data-bs-toggle]="'modal'"
+          [attr.data-bs-target]="'#skillBackdrop' + skill.id"
+          title="Editar"
+        >
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button
+          (click)="deleteElement($event)"
+          id="{{ skill.id }}"
+          title="Borrar"
+        >
+          <i class="bi bi-trash3"></i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="progress"
+      role="progressbar"
+      aria-label="Basic example"
+      aria-valuenow="75"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      <div class="progress-bar" style="{{ 'width:' + skill.level + '%' }}">
+        {{ skill.level }}%
+      </div>
+    </div>
+  </div>
+</div>
+
+<button
+  [attr.data-bs-toggle]="'modal'"
+  [attr.data-bs-target]="'#skillBackdropCreate'"
+  class="btn btn-primary"
+  *ngIf="editMode"
+  id="createElement"
+  title="Añadir habilidad"
+  ngsReveal
+>
+  Añadir habilidad
+</button>
