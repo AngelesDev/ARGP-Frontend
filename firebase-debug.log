@@ -1,0 +1,32 @@
+[debug] [2023-04-10T22:17:44.810Z] ----------------------------------------------------------------------
+[debug] [2023-04-10T22:17:44.815Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\marti\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-04-10T22:17:44.818Z] CLI Version:   11.25.3
+[debug] [2023-04-10T22:17:44.819Z] Platform:      win32
+[debug] [2023-04-10T22:17:44.820Z] Node Version:  v16.18.0
+[debug] [2023-04-10T22:17:44.822Z] Time:          Mon Apr 10 2023 19:17:44 GMT-0300 (Argentina Standard Time)
+[debug] [2023-04-10T22:17:44.823Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-10T22:17:45.141Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-10T22:17:45.142Z] > authorizing via signed-in user (angelesdev32@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\marti\Desktop\Proyecto Final\Proyecto-Integrador-Maria-Valdez\frontend
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
