@@ -75,7 +75,7 @@
             id="{{ education.id }}"
             (click)="saveElement($event)"
           >
-            Guardar
+            {{ saveState }}
           </button>
         </div>
       </div>
@@ -141,7 +141,7 @@
           id="{{ education.id }}"
           (click)="createElement($event)"
         >
-          Guardar
+          {{ saveState }}
         </button>
       </div>
     </div>

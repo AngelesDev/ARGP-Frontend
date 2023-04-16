@@ -14,6 +14,7 @@ export class ProjectsComponent {
   // Edit Mode
   editMode = sessionStorage.getItem('isLoggedIn');
   convertToTextarea = false;
+  saveState = 'Guardar';
 
   updateData() {
     this.projectService.getProject().subscribe((data) => {
@@ -24,12 +25,17 @@ export class ProjectsComponent {
   hideModal() {
     const htmlBody: any = document.querySelector<HTMLElement>('body');
     htmlBody.style = '';
-    document.querySelector<HTMLElement>(
+
+    const checkModalBackdrop = document.querySelector<HTMLElement>(
       '.modal-backdrop.fade.show'
-    )!.remove()
+    )
+    if (checkModalBackdrop) {
+      checkModalBackdrop.remove()
+    }
   }
 
   createElement(event: any) {
+    this.saveState = 'Guardando...';
     const id = event.target.id;
 
     const projectTitle: any = document.querySelector<HTMLInputElement>(
@@ -63,6 +69,7 @@ export class ProjectsComponent {
 
     request.onreadystatechange = () => {
       if (request.status === 200) {
+        this.saveState = 'Guardar';
         AlertComponent.setAlert('.success');
         this.updateData();
         this.hideModal();
@@ -100,8 +107,8 @@ export class ProjectsComponent {
     }
   }
 
-  @ViewChild('skillTitle') educationTitle!: ElementRef;
   saveElement(event: any) {
+    this.saveState = 'Guardando...';
     const id = event.target.id;
     const formData = new FormData();
 
@@ -134,6 +141,7 @@ export class ProjectsComponent {
 
     request.onreadystatechange = () => {
       if (request.status === 200) {
+        this.saveState = 'Guardar';
         AlertComponent.setAlert('.success');
         this.updateData();
         this.hideModal();

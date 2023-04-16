@@ -14,6 +14,7 @@ export class ExperienceComponent {
   // Edit Mode
   editMode = sessionStorage.getItem('isLoggedIn');
   convertToTextarea = false;
+  saveState = 'Guardar';
 
   updateData() {
     this.experienceService.getExperience().subscribe((data) => {
@@ -24,12 +25,17 @@ export class ExperienceComponent {
   hideModal() {
     const htmlBody: any = document.querySelector<HTMLElement>('body');
     htmlBody.style = '';
-    document.querySelector<HTMLElement>(
+
+    const checkModalBackdrop = document.querySelector<HTMLElement>(
       '.modal-backdrop.fade.show'
-    )!.remove()
+    )
+    if (checkModalBackdrop) {
+      checkModalBackdrop.remove()
+    }
   }
 
   createElement(event: any) {
+    this.saveState = 'Guardando...';
     const id = event.target.id;
 
     const experienceName: any = document.querySelector<HTMLInputElement>(
@@ -51,6 +57,7 @@ export class ExperienceComponent {
 
     request.onreadystatechange = () => {
       if (request.status === 200) {
+        this.saveState = 'Guardar';
         AlertComponent.setAlert('.success');
         this.updateData();
         this.hideModal();
@@ -88,8 +95,8 @@ export class ExperienceComponent {
     }
   }
 
-  @ViewChild('experienceTitle') educationTitle!: ElementRef;
   saveElement(event: any) {
+    this.saveState = 'Guardando...';
     const id = event.target.id;
     const formData = new FormData();
     const experienceName: any = document.querySelector<HTMLInputElement>(
@@ -108,6 +115,7 @@ export class ExperienceComponent {
 
     request.onreadystatechange = () => {
       if (request.status === 200) {
+        this.saveState = 'Guardar';
         AlertComponent.setAlert('.success');
         this.updateData();
         this.hideModal();
