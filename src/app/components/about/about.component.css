@@ -2,6 +2,10 @@
   display: flex;
 }
 
+#about textarea {
+  width: 100%;
+}
+
 #about-info {
   width: 100%;
   padding: 0 15px;
