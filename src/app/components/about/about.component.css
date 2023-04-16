@@ -17,9 +17,10 @@
 
 img {
   width: 100%;
-  max-width: 300px;
+  min-width: 325px;
+  max-width: 550px;
   object-fit: cover;
-  margin-top: 8px;
+  padding: 0 5px;
 }
 
 #img-edit {
