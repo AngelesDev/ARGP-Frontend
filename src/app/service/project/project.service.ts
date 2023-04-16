@@ -7,7 +7,7 @@ import { Project } from 'src/app/model/project.model';
   providedIn: 'root'
 })
 export class ProjectService {
-  URL = 'http://localhost:8080/'
+  URL = 'https://portfolio-backend-fjc1.onrender.com/'
   constructor(private http: HttpClient) { }
 
   public getProject(): Observable<Project> {

@@ -45,7 +45,7 @@ export class EducationComponent {
     };
 
     const request = new XMLHttpRequest();
-    request.open('POST', `http://localhost:8080/education/create`);
+    request.open('POST', `https://portfolio-backend-fjc1.onrender.com/education/create`);
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     request.send(JSON.stringify(formData));
 
@@ -69,7 +69,7 @@ export class EducationComponent {
       const request: any = new XMLHttpRequest();
       request.open(
         'DELETE',
-        `http://localhost:8080/education/delete/${event.target.id}`
+        `https://portfolio-backend-fjc1.onrender.com/education/delete/${event.target.id}`
       );
       request.send();
 
@@ -103,7 +103,7 @@ export class EducationComponent {
     formData.append('body', educationDescription.value);
 
     const request = new XMLHttpRequest();
-    request.open('PUT', `http://localhost:8080/education/edit/${id}`);
+    request.open('PUT', `https://portfolio-backend-fjc1.onrender.com/education/edit/${id}`);
     request.send(formData);
 
     request.onreadystatechange = () => {

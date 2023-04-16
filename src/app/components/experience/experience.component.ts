@@ -45,7 +45,7 @@ export class ExperienceComponent {
     };
 
     const request = new XMLHttpRequest();
-    request.open('POST', `http://localhost:8080/experiences/create`);
+    request.open('POST', `https://portfolio-backend-fjc1.onrender.com/experiences/create`);
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     request.send(JSON.stringify(formData));
 
@@ -69,7 +69,7 @@ export class ExperienceComponent {
       const request: any = new XMLHttpRequest();
       request.open(
         'DELETE',
-        `http://localhost:8080/experiences/delete/${event.currentTarget.id}`
+        `https://portfolio-backend-fjc1.onrender.com/experiences/delete/${event.currentTarget.id}`
       );
       request.send();
 
@@ -103,7 +103,7 @@ export class ExperienceComponent {
     formData.append('body', experienceDescription.value);
 
     const request = new XMLHttpRequest();
-    request.open('PUT', `http://localhost:8080/experiences/edit/${id}`);
+    request.open('PUT', `https://portfolio-backend-fjc1.onrender.com/experiences/edit/${id}`);
     request.send(formData);
 
     request.onreadystatechange = () => {

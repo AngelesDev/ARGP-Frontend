@@ -34,7 +34,7 @@ export class BannerComponent {
       formData.append('nombre', '');
 
       const request = new XMLHttpRequest();
-      request.open('PUT', 'http://localhost:8080/personas/editar/1');
+      request.open('PUT', 'https://portfolio-backend-fjc1.onrender.com/personas/editar/1');
       request.send(formData);
 
       request.onreadystatechange = () => {
@@ -62,7 +62,7 @@ export class BannerComponent {
     formData.append('nombre', this.name.nativeElement.value);
 
     const request = new XMLHttpRequest();
-    request.open('PUT', 'http://localhost:8080/personas/editar/1');
+    request.open('PUT', 'https://portfolio-backend-fjc1.onrender.com/personas/editar/1');
     request.send(formData);
 
     request.onreadystatechange = () => {

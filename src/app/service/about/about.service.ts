@@ -7,7 +7,7 @@ import { About } from '../../model/about.model';
   providedIn: 'root'
 })
 export class AboutService {
-  URL = 'http://localhost:8080/'
+  URL = 'https://portfolio-backend-fjc1.onrender.com/'
   constructor(private http: HttpClient) { }
 
   public getAbout(): Observable<About> {

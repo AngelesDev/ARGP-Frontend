@@ -7,7 +7,7 @@ import { Skill } from 'src/app/model/skill.model';
   providedIn: 'root'
 })
 export class SkillService {
-  URL = 'http://localhost:8080/'
+  URL = 'https://portfolio-backend-fjc1.onrender.com/'
   constructor(private http: HttpClient) { }
 
   public getSkills(): Observable<Skill> {

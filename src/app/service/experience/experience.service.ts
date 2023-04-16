@@ -7,7 +7,7 @@ import { Experience } from 'src/app/model/experience.model';
   providedIn: 'root'
 })
 export class ExperienceService {
-  URL = 'http://localhost:8080/'
+  URL = 'https://portfolio-backend-fjc1.onrender.com/'
   constructor(private http: HttpClient) { }
 
   public getExperience(): Observable<Experience> {

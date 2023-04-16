@@ -45,7 +45,7 @@ export class HardSoftSkillsComponent {
     };
 
     const request = new XMLHttpRequest();
-    request.open('POST', `http://localhost:8080/skills/create`);
+    request.open('POST', `https://portfolio-backend-fjc1.onrender.com/skills/create`);
     request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     request.send(JSON.stringify(formData));
 
@@ -69,7 +69,7 @@ export class HardSoftSkillsComponent {
       const request: any = new XMLHttpRequest();
       request.open(
         'DELETE',
-        `http://localhost:8080/skills/delete/${event.currentTarget.id}`
+        `https://portfolio-backend-fjc1.onrender.com/skills/delete/${event.currentTarget.id}`
       );
       request.send();
 
@@ -103,7 +103,7 @@ export class HardSoftSkillsComponent {
     formData.append('level', skillLevel.value);
 
     const request = new XMLHttpRequest();
-    request.open('PUT', `http://localhost:8080/skills/edit/${id}`);
+    request.open('PUT', `https://portfolio-backend-fjc1.onrender.com/skills/edit/${id}`);
     request.send(formData);
 
     request.onreadystatechange = () => {

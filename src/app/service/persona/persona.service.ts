@@ -7,7 +7,7 @@ import { Persona } from '../../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL = 'http://localhost:8080/'
+  URL = 'https://portfolio-backend-fjc1.onrender.com/'
   constructor(private http: HttpClient) { }
 
   public getPersona(): Observable<Persona> {

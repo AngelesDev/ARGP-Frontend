@@ -48,7 +48,7 @@ export class AboutComponent {
       formData.append('body', '');
 
       const request = new XMLHttpRequest();
-      request.open('PUT', 'http://localhost:8080/about/editar/1');
+      request.open('PUT', 'https://portfolio-backend-fjc1.onrender.com/about/editar/1');
       request.send(formData);
 
       request.onreadystatechange = () => {
@@ -75,7 +75,7 @@ export class AboutComponent {
     formData.append('body', this.description.nativeElement.value);
 
     const request = new XMLHttpRequest();
-    request.open('PUT', 'http://localhost:8080/about/editar/1');
+    request.open('PUT', 'https://portfolio-backend-fjc1.onrender.com/about/editar/1');
     request.send(formData);
 
     request.onreadystatechange = () => {

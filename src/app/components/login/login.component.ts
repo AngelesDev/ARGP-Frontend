@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     const usernameFrontend = this.username.nativeElement.value;
     const passwordFrontend = this.password.nativeElement.value;
 
-    fetch('http://localhost:8080/user/get')
+    fetch('https://portfolio-backend-fjc1.onrender.com/user/get')
       .then((res) => res.json())
       .then((res) => {
         if (
