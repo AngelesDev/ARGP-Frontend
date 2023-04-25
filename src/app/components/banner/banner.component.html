@@ -1,7 +1,7 @@
 <div id="banner">
   <img src="../../../assets/banner.jpeg" alt="Banner" />
   <div class="center" *ngIf="!editMode">
-    {{ persona.nombre }}
+    {{ persona.nombre || 'Cargando...' }}
   </div>
 
   <div class="center" *ngIf="editMode">

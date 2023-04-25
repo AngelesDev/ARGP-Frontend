@@ -3,8 +3,8 @@
   <div class="col-lg-11">
     <ul *ngFor="let experience of experiences">
       <li ngsReveal *ngIf="!editMode">
-        <h5>{{ experience.title }}</h5>
-        <p>{{ experience.body }}</p>
+        <h5>{{ experience.title || 'Cargando...' }}</h5>
+        <p>{{ experience.body || 'Cargando...' }}</p>
       </li>
     </ul>
   </div>
@@ -165,10 +165,10 @@
         </button>
       </div>
       <h5 id="experienceTitle{{ experience.id }}">
-        {{ experience.title }}
+        {{ experience.title || 'Cargando...' }}
       </h5>
       <p id="experienceBodyDescription{{ experience.id }}">
-        {{ experience.body }}
+        {{ experience.body || 'Cargando...' }}
       </p>
     </li>
   </ul>

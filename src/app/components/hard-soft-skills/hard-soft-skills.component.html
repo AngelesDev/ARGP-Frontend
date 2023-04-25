@@ -1,7 +1,7 @@
 <h2 ngsReveal>Habilidades</h2>
 <div id="skills" *ngFor="let skill of skills">
   <div id="skill-container" ngsReveal *ngIf="!editMode">
-    {{ skill.name }}
+    {{ skill.name || 'Cargando...' }}
     <div
       class="progress"
       role="progressbar"
@@ -11,7 +11,7 @@
       aria-valuemax="100"
     >
       <div class="progress-bar" style="{{ 'width:' + skill.level + '%' }}">
-        {{ skill.level }}%
+        {{ skill.level || 'Cargando...' }}%
       </div>
     </div>
   </div>
@@ -156,7 +156,7 @@
 
   <div id="skill-container" class="skillContainer{{ skill.id }}" ngsReveal *ngIf="editMode">
     <div class="skill-info-container">
-      <span>{{ skill.name }}</span>
+      <span>{{ skill.name || 'Cargando...' }}</span>
       <div id="actions">
         <button
           [attr.data-bs-toggle]="'modal'"
@@ -183,7 +183,7 @@
       aria-valuemax="100"
     >
       <div class="progress-bar" style="{{ 'width:' + skill.level + '%' }}">
-        {{ skill.level }}%
+        {{ skill.level || 'Cargando...' }}%
       </div>
     </div>
   </div>

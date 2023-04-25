@@ -4,9 +4,9 @@
     <ul *ngFor="let education of educations">
       <li ngsReveal *ngIf="!editMode">
         <h5>
-          {{ education.title }}
+          {{ education.title || "Cargando..." }}
         </h5>
-        <p>{{ education.body }}</p>
+        <p>{{ education.body || "Cargando..." }}</p>
       </li>
     </ul>
   </div>
@@ -84,69 +84,69 @@
 
   <!-- Modal Create Element Editor -->
   <div
-  class="modal fade"
-  id="educationBackdropCreate"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">
-          Añadir educación
-        </h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <form class="modal-body">
-        <label>
-          <span>Nombre de tu educación</span>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Por ejemplo: Ingeniería Informatica - Facultad de Ingeniería"
-            id="createEducationName{{ education.id }}"
-            required
-          />
-        </label>
+    class="modal fade"
+    id="educationBackdropCreate"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Añadir educación
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form class="modal-body">
+          <label>
+            <span>Nombre de tu educación</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Por ejemplo: Ingeniería Informatica - Facultad de Ingeniería"
+              id="createEducationName{{ education.id }}"
+              required
+            />
+          </label>
 
-        <label>
-          <span>Descripción</span>
-          <input
-            type="text"
-            class="form-control"
-            id="createEducationDescription{{ education.id }}"
-            required
-          />
-        </label>
-      </form>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-        >
-          Cancelar
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          id="{{ education.id }}"
-          (click)="createElement($event)"
-        >
-          {{ saveState }}
-        </button>
+          <label>
+            <span>Descripción</span>
+            <input
+              type="text"
+              class="form-control"
+              id="createEducationDescription{{ education.id }}"
+              required
+            />
+          </label>
+        </form>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="{{ education.id }}"
+            (click)="createElement($event)"
+          >
+            {{ saveState }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <ul id="educationContainer{{ education.id }}">
     <li ngsReveal *ngIf="editMode">
@@ -167,9 +167,9 @@
         </button>
       </div>
       <h5 id="educationTitle{{ education.id }}">
-        {{ education.title }}
+        {{ education.title || "Cargando..." }}
       </h5>
-      <p>{{ education.body }}</p>
+      <p>{{ education.body || "Cargando..." }}</p>
     </li>
   </ul>
 </div>
