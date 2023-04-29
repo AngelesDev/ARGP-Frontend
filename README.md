@@ -5,12 +5,12 @@ Tecnologias usadas: Angular 15
 
 ## Como ponerlo en marcha
 
-´´´
+´´
 ng serve
-´´´
+´´
 
 ## Como construirlo para producción
 
-´´´
+´´
 ng build
-´´´
+´´
