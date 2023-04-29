@@ -17,3 +17,7 @@ Si quieres ver la parte backend del proyecto hace click <a href="https://github.
 Usuario: Admin
 
 Contraseña: admin
+
+## Capturas de pantalla
+<img src="https://github.com/AngelesDev/Portfolio-Frontend/blob/main/src/assets/screenshot_normal.png?raw=true" />
+<img src="https://github.com/AngelesDev/Portfolio-Frontend/blob/main/src/assets/screenshot_editor_mode.png?raw=true" />
