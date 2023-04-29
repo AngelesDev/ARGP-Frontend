@@ -22,8 +22,8 @@ Contraseña: admin
 
 Modo normal:
 
-<img src="https://github.com/AngelesDev/Portfolio-Frontend/blob/main/src/assets/screenshot_normal.png?raw=true" />
+<img src="https://github.com/AngelesDev/Portfolio-Frontend/blob/main/src/assets/screenshot_full_page.png?raw=true" />
 
 Modo edición:
 
-<img src="https://github.com/AngelesDev/Portfolio-Frontend/blob/main/src/assets/screenshot_editor_mode.png?raw=true" />
+<img src="https://github.com/AngelesDev/Portfolio-Frontend/blob/main/src/assets/screenshot_full_page_editor_mode.png?raw=true" />
