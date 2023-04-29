@@ -19,5 +19,11 @@ Usuario: Admin
 Contraseña: admin
 
 ## Capturas de pantalla
+
+Modo normal:
+
 <img src="https://github.com/AngelesDev/Portfolio-Frontend/blob/main/src/assets/screenshot_normal.png?raw=true" />
+
+Modo edición:
+
 <img src="https://github.com/AngelesDev/Portfolio-Frontend/blob/main/src/assets/screenshot_editor_mode.png?raw=true" />
