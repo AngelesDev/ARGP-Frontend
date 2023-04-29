@@ -7,9 +7,8 @@ Si quieres ver la parte backend del proyecto hace click <a href="https://github.
 
 ## Como ponerlo en marcha
 
-### ´ng serve´
+`ng serve`
 
 ## Como construirlo para producción
 
-### ´ng build´
-### `npm start`
+`ng build`
