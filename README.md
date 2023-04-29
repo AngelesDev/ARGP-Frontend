@@ -12,3 +12,8 @@ Si quieres ver la parte backend del proyecto hace click <a href="https://github.
 ## Como construirlo para producción
 
 `$ ng build`
+
+# Usuario y contraseña para acceder al modo edición
+Usuario: Admin
+
+Contraseña: admin
